@@ -61,7 +61,7 @@
 			</descriptor>
 			<descriptor id="audioDesc">
 			</descriptor>
-			<descriptor focusIndex="2" id="personagensDesc" moveDown="3" moveUp="5" region="personagensReg">
+			<descriptor focusIndex="2" id="personagensDesc" moveDown="3" moveRight="7" moveUp="5" region="personagensReg">
 			</descriptor>
 			<descriptor focusIndex="3" id="rockDesc" moveDown="4" moveUp="2" region="rockReg">
 			</descriptor>
@@ -71,19 +71,27 @@
 			</descriptor>
 			<descriptor id="submenuDesc" region="submenuReg">
 			</descriptor>
-			<descriptor focusIndex="6" id="antDesc" moveLeft="7" moveRight="7" region="antReg">
+			<descriptor focusIndex="6" id="antDesc" moveDown="8" moveLeft="7" moveRight="7" moveUp="8" region="antReg">
 			</descriptor>
-			<descriptor focusIndex="7" id="proxDesc" moveLeft="6" moveRight="6" region="proxReg">
+			<descriptor focusIndex="7" id="proxDesc" moveDown="8" moveLeft="6" moveRight="6" moveUp="8" region="proxReg">
 			</descriptor>
 			<descriptor id="fotowalterDesc" region="fotoReg">
 			</descriptor>
-			<descriptor id="voltarDesc" region="voltarReg">
+			<descriptor focusIndex="8" id="voltarDesc" moveDown="6" moveUp="6" region="voltarReg">
 			</descriptor>
 			<descriptor id="textowalterDesc" region="textoReg">
 			</descriptor>
 		</descriptorBase>
 	</head>
 	<body id="myBodyID">
+		<media id="nodeSettings" type="application/x-ncl-settings">
+			<property name="system.language">
+			</property>
+			<property name="interaction" value="true">
+			</property>
+			<property name="default.focusBorderColor" value="yellow">
+			</property>
+		</media>
 		<media descriptor="backgroundDesc" id="background" src="media/background.jpg">
 		</media>
 		<port component="filme" id="p0">
@@ -285,7 +293,7 @@
 				<bind component="menu" role="onEnd">
 				</bind>
 				<bind component="reusedFilme" interface="bounds" role="set">
-					<bindParam name="var" value="0.00%,0.00%,100.00%,100.00%">
+					<bindParam name="var" value="0.00%,0.00%,286.00%,286.00%">
 					</bindParam>
 				</bind>
 			</link>

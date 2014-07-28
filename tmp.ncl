@@ -35,7 +35,7 @@
 				<region height="9.00%" id="sairReg" left="4.00%" top="65.00%" width="20.00%" zIndex="4">
 				</region>
 				<region height="100.00%" id="submenuReg" left="27.99%" top="0.00%" width="30.91%" zIndex="5">
-					<region height="42.05%" id="fotoReg" left="10.98%" top="0.42%" width="78.41%" zIndex="6">
+					<region height="42.05%" id="fotoReg" left="10.98%" top="2.00%" width="78.41%" zIndex="6">
 					</region>
 					<region height="48.12%" id="textoReg" left="10.98%" top="46.03%" width="78.03%" zIndex="7">
 					</region>
@@ -43,7 +43,7 @@
 					</region>
 					<region height="6.90%" id="antReg" left="6.06%" top="14.85%" width="10.98%" zIndex="8">
 					</region>
-					<region height="7.71%" id="voltarReg" left="5.68%" top="91.04%" width="15.91%" zIndex="9">
+					<region height="5.62%" id="voltarReg" left="8.33%" top="91.88%" width="10.98%" zIndex="9">
 					</region>
 				</region>
 			</region>
@@ -285,7 +285,7 @@
 				<bind component="menu" role="onEnd">
 				</bind>
 				<bind component="reusedFilme" interface="bounds" role="set">
-					<bindParam name="var" value="0.00%,0.00%,100.00%,100.00%">
+					<bindParam name="var" value="0.00%,0.00%,286.00%,286.00%">
 					</bindParam>
 				</bind>
 			</link>
@@ -300,6 +300,8 @@
 			<bind component="filme" role="onEnd">
 			</bind>
 			<bind component="background" role="stop">
+			</bind>
+			<bind component="ctx0" role="stop">
 			</bind>
 		</link>
 	</body>
