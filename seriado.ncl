@@ -1,13 +1,17 @@
 <ncl id="myNCLDocID">
 	<head>
+		<transitionBase id="transitionBase1">
+			<transition dur="2s" endProgress="1" id="tFade" startProgress="0" type="fade">
+			</transition>
+		</transitionBase>
 		<ruleBase id="ruleBase1">
 			<rule comparator="eq" id="en" value="en" var="system.language">
 			</rule>
 			<rule comparator="eq" id="rPersonagens" value="2" var="si.channelNumber">
 			</rule>
-			<rule comparator="eq" id="rRock" value="3" var="service.currentFocus">
+			<rule comparator="eq" id="rCapitulos" value="3" var="service.currentFocus">
 			</rule>
-			<rule comparator="eq" id="rTechno" value="4" var="service.currentFocus">
+			<rule comparator="eq" id="rFotos" value="4" var="service.currentFocus">
 			</rule>
 			<rule comparator="eq" id="rCartoon" value="5" var="service.currentFocus">
 			</rule>
@@ -30,9 +34,9 @@
 				</region>
 				<region height="9.00%" id="personagensReg" left="4.00%" top="25.00%" width="20.00%" zIndex="4">
 				</region>
-				<region height="9.00%" id="rockReg" left="4.00%" top="35.00%" width="20.00%" zIndex="4">
+				<region height="9.00%" id="capitulosReg" left="4.00%" top="35.00%" width="20.00%" zIndex="4">
 				</region>
-				<region height="9.00%" id="technoReg" left="4.00%" top="45.00%" width="20.00%" zIndex="4">
+				<region height="9.00%" id="fotosReg" left="4.00%" top="45.00%" width="20.00%" zIndex="4">
 				</region>
 				<region height="9.00%" id="cartoonReg" left="4.00%" top="55.00%" width="20.00%" zIndex="4">
 				</region>
@@ -67,9 +71,9 @@
 			</descriptor>
 			<descriptor focusIndex="2" id="personagensDesc" moveDown="3" moveRight="7" moveUp="5" region="personagensReg">
 			</descriptor>
-			<descriptor focusIndex="3" id="rockDesc" moveDown="4" moveUp="2" region="rockReg">
+			<descriptor focusIndex="3" id="capitulosDesc" moveDown="4" moveUp="2" region="capitulosReg">
 			</descriptor>
-			<descriptor focusIndex="4" id="technoDesc" moveDown="5" moveUp="3" region="technoReg">
+			<descriptor focusIndex="4" id="fotosDesc" moveDown="5" moveUp="3" region="fotosReg">
 			</descriptor>
 			<descriptor focusIndex="5" id="sairDesc" moveDown="2" moveUp="4" region="cartoonReg">
 			</descriptor>
@@ -92,6 +96,8 @@
 			<descriptor id="textoskylerDesc" region="textoReg">
 			</descriptor>
 			<descriptor id="textojesseDesc" region="textoReg">
+			</descriptor>
+			<descriptor id="submenufotosDesc" region="submenuReg">
 			</descriptor>
 		</descriptorBase>
 	</head>
@@ -149,17 +155,17 @@
 		<context id="menuCont">
 			<port component="imgPersonagens" id="pChorinho">
 			</port>
-			<port component="imgRock" id="pRock">
+			<port component="imgCapitulos" id="pRock">
 			</port>
-			<port component="imgTechno" id="pTechno">
+			<port component="imgFotos" id="pFotos">
 			</port>
 			<port component="imgSair" id="pCartoon">
 			</port>
 			<media descriptor="personagensDesc" id="imgPersonagens" src="media/personagens.png">
 			</media>
-			<media descriptor="rockDesc" id="imgRock" src="media/capitulos.png">
+			<media descriptor="capitulosDesc" id="imgCapitulos" src="media/capitulos.png">
 			</media>
-			<media descriptor="technoDesc" id="imgTechno" src="media/fotos.png">
+			<media descriptor="fotosDesc" id="imgFotos" src="media/fotos.png">
 			</media>
 			<media descriptor="sairDesc" id="imgSair" src="media/sair.png">
 			</media>
@@ -172,25 +178,23 @@
 			<switch id="musics">
 				<bindRule constituent="personagens" rule="rPersonagens">
 				</bindRule>
-				<bindRule constituent="rock" rule="rRock">
+				<bindRule constituent="capitulos" rule="rCapitulos">
 				</bindRule>
-				<bindRule constituent="techno" rule="rTechno">
+				<bindRule constituent="fotos" rule="rFotos">
 				</bindRule>
 				<bindRule constituent="cartoon" rule="rCartoon">
 				</bindRule>
 				<media id="personagens" src="media/rock.mp4">
 				</media>
-				<media id="rock" src="media/rock.mp4">
+				<media id="capitulos" src="media/rock.mp4">
 				</media>
-				<media id="techno" src="media/techno.mp4">
+				<media id="fotos" src="media/techno.mp4">
 				</media>
 				<media id="cartoon" src="media/cartoon.mp4">
 				</media>
 			</switch>
 			<link id="lOthers" xconnector="conn#onSelection_orSet_varStopStart">
-				<bind component="imgRock" role="onSelection">
-				</bind>
-				<bind component="imgTechno" role="onSelection">
+				<bind component="imgCapitulos" role="onSelection">
 				</bind>
 				<bind component="choro" interface="soundLevel" role="set">
 					<bindParam name="var" value="0">
@@ -313,16 +317,36 @@
 					</bind>
 				</link>
 			</context>
-			<link id="link10" xconnector="conn#onBeginStart">
+			<media descriptor="submenufotosDesc" id="submenufotos" src="media/submenufotos.png">
+			</media>
+			<link id="link10" xconnector="conn#onKeySelectionStart">
+				<bind component="imgFotos" role="onSelection">
+				</bind>
+				<bind component="submenufotos" role="start">
+				</bind>
+			</link>
+			<link id="link19" xconnector="conn#onBeginStart">
 				<bind component="submenu" role="onBegin">
 				</bind>
 				<bind component="ctx1" role="start">
 				</bind>
 			</link>
-			<link id="link13" xconnector="conn#onEndStop">
+			<link id="link20" xconnector="conn#onEndStop">
 				<bind component="submenu" role="onEnd">
 				</bind>
 				<bind component="ctx1" role="stop">
+				</bind>
+			</link>
+			<link id="link21" xconnector="conn#onBeginStop">
+				<bind component="submenufotos" role="onBegin">
+				</bind>
+				<bind component="ctx1" role="stop">
+				</bind>
+			</link>
+			<link id="link13" xconnector="conn#onKeySelectionStop">
+				<bind component="imgPersonagens" role="onSelection">
+				</bind>
+				<bind component="submenufotos" role="stop">
 				</bind>
 			</link>
 		</context>
