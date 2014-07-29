@@ -43,9 +43,23 @@
 				<region height="9.00%" id="sairReg" left="4.00%" top="65.00%" width="20.00%" zIndex="4">
 				</region>
 				<region height="100.00%" id="submenuReg" left="27.99%" top="0.00%" width="30.91%" zIndex="5">
-					<region height="42.05%" id="fotoReg" left="10.98%" top="2.00%" width="78.41%" zIndex="6">
+					<region height="42.05%" id="fotoReg" left="10.61%" top="2.08%" width="78.41%" zIndex="6">
+						<region height="11.39%" id="umReg" left="5.80%" top="86.00%" width="11.59%" zIndex="10">
+						</region>
+						<region height="11.39%" id="doisReg" left="18.36%" top="86.00%" width="11.59%" zIndex="10">
+						</region>
+						<region height="11.39%" id="tresReg" left="30.92%" top="86.00%" width="11.59%" zIndex="10">
+						</region>
+						<region height="11.39%" id="quatroReg" left="43.48%" top="86.00%" width="11.59%" zIndex="10">
+						</region>
+						<region height="11.39%" id="cincoReg" left="56.04%" top="86.00%" width="11.59%" zIndex="10">
+						</region>
+						<region height="11.39%" id="seisReg" left="69.08%" top="86.00%" width="11.59%" zIndex="10">
+						</region>
+						<region height="11.39%" id="seteReg" left="81.64%" top="86.00%" width="11.59%" zIndex="10">
+						</region>
 					</region>
-					<region height="48.12%" id="textoReg" left="10.98%" top="46.03%" width="78.03%" zIndex="7">
+					<region height="48.12%" id="textoReg" left="10.61%" top="46.04%" width="78.03%" zIndex="7">
 					</region>
 					<region height="6.90%" id="proxReg" left="84.09%" top="15.06%" width="10.98%" zIndex="8">
 					</region>
@@ -71,7 +85,7 @@
 			</descriptor>
 			<descriptor focusIndex="2" id="personagensDesc" moveDown="3" moveRight="7" moveUp="5" region="personagensReg">
 			</descriptor>
-			<descriptor focusIndex="3" id="capitulosDesc" moveDown="4" moveUp="2" region="capitulosReg">
+			<descriptor focusIndex="3" id="capitulosDesc" moveDown="4" moveRight="11" moveUp="2" region="capitulosReg">
 			</descriptor>
 			<descriptor focusIndex="4" id="fotosDesc" moveDown="5" moveUp="3" region="fotosReg">
 			</descriptor>
@@ -102,6 +116,20 @@
 			<descriptor id="primeiratemporadaDesc" region="fotoReg">
 			</descriptor>
 			<descriptor id="submenucapitulosDesc" region="submenuReg">
+			</descriptor>
+			<descriptor focusIndex="11" id="umDesc" moveLeft="3" moveRight="12" region="umReg">
+			</descriptor>
+			<descriptor focusIndex="12" id="doisDesc" moveLeft="11" moveRight="13" region="doisReg">
+			</descriptor>
+			<descriptor focusIndex="13" id="tresDesc" moveLeft="12" moveRight="14" region="tresReg">
+			</descriptor>
+			<descriptor focusIndex="14" id="quatroDesc" moveLeft="13" moveRight="15" region="quatroReg">
+			</descriptor>
+			<descriptor focusIndex="15" id="cincoDesc" moveLeft="14" moveRight="16" region="cincoReg">
+			</descriptor>
+			<descriptor focusIndex="16" id="seisDesc" moveLeft="15" moveRight="17" region="seisReg">
+			</descriptor>
+			<descriptor focusIndex="17" id="seteDesc" moveLeft="16" moveRight="11" region="seteReg">
 			</descriptor>
 		</descriptorBase>
 	</head>
@@ -331,6 +359,54 @@
 				<bind component="submenucapitulos" role="onBegin">
 				</bind>
 				<bind component="primeiratemporada" role="start">
+				</bind>
+			</link>
+			<link id="link13" xconnector="conn#onEndStop">
+				<bind component="submenucapitulos" role="onEnd">
+				</bind>
+				<bind component="primeiratemporada" role="stop">
+				</bind>
+			</link>
+			<context id="ctx0">
+				<media descriptor="seteDesc" id="sete" src="media/sete.png">
+				</media>
+				<media descriptor="tresDesc" id="tres" src="media/tres.png">
+				</media>
+				<media descriptor="umDesc" id="um" src="media/um.png">
+				</media>
+				<media descriptor="cincoDesc" id="cinco" src="media/cinco.png">
+				</media>
+				<media descriptor="doisDesc" id="dois" src="media/dois.png">
+				</media>
+				<media descriptor="quatroDesc" id="quatro" src="media/quatro.png">
+				</media>
+				<media descriptor="seisDesc" id="seis" src="media/seis.png">
+				</media>
+				<port component="um" id="p7">
+				</port>
+				<port component="dois" id="p8">
+				</port>
+				<port component="tres" id="p9">
+				</port>
+				<port component="quatro" id="p10">
+				</port>
+				<port component="cinco" id="p11">
+				</port>
+				<port component="seis" id="p12">
+				</port>
+				<port component="sete" id="p13">
+				</port>
+			</context>
+			<link id="link23" xconnector="conn#onBeginStart">
+				<bind component="submenucapitulos" role="onBegin">
+				</bind>
+				<bind component="ctx0" role="start">
+				</bind>
+			</link>
+			<link id="link24" xconnector="conn#onEndStop">
+				<bind component="submenucapitulos" role="onEnd">
+				</bind>
+				<bind component="ctx0" role="stop">
 				</bind>
 			</link>
 		</context>

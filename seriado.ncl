@@ -85,7 +85,7 @@
 			</descriptor>
 			<descriptor focusIndex="2" id="personagensDesc" moveDown="3" moveRight="7" moveUp="5" region="personagensReg">
 			</descriptor>
-			<descriptor focusIndex="3" id="capitulosDesc" moveDown="4" moveUp="2" region="capitulosReg">
+			<descriptor focusIndex="3" id="capitulosDesc" moveDown="4" moveRight="11" moveUp="2" region="capitulosReg">
 			</descriptor>
 			<descriptor focusIndex="4" id="fotosDesc" moveDown="5" moveUp="3" region="fotosReg">
 			</descriptor>
@@ -117,19 +117,19 @@
 			</descriptor>
 			<descriptor id="submenucapitulosDesc" region="submenuReg">
 			</descriptor>
-			<descriptor id="umDesc" region="umReg">
+			<descriptor focusIndex="11" id="umDesc" moveLeft="3" moveRight="12" region="umReg">
 			</descriptor>
-			<descriptor id="doisDesc" region="doisReg">
+			<descriptor focusIndex="12" id="doisDesc" moveLeft="11" moveRight="13" region="doisReg">
 			</descriptor>
-			<descriptor id="tresDesc" region="tresReg">
+			<descriptor focusIndex="13" id="tresDesc" moveLeft="12" moveRight="14" region="tresReg">
 			</descriptor>
-			<descriptor id="quatroDesc" region="quatroReg">
+			<descriptor focusIndex="14" id="quatroDesc" moveLeft="13" moveRight="15" region="quatroReg">
 			</descriptor>
-			<descriptor id="cincoDesc" region="cincoReg">
+			<descriptor focusIndex="15" id="cincoDesc" moveLeft="14" moveRight="16" region="cincoReg">
 			</descriptor>
-			<descriptor id="seisDesc" region="seisReg">
+			<descriptor focusIndex="16" id="seisDesc" moveLeft="15" moveRight="17" region="seisReg">
 			</descriptor>
-			<descriptor id="seteDesc" region="seteReg">
+			<descriptor focusIndex="17" id="seteDesc" moveLeft="16" moveRight="11" region="seteReg">
 			</descriptor>
 		</descriptorBase>
 	</head>
@@ -182,8 +182,6 @@
 			<bind component="iconeMedia" role="stop">
 			</bind>
 		</link>
-		<media descriptor="nosinalDesc" id="nosinal" src="media/nosignal.mp4">
-		</media>
 		<context id="menuCont">
 			<port component="imgPersonagens" id="pChorinho">
 			</port>
@@ -403,6 +401,12 @@
 				<bind component="ctx0" role="start">
 				</bind>
 			</link>
+			<link id="link24" xconnector="conn#onEndStop">
+				<bind component="submenucapitulos" role="onEnd">
+				</bind>
+				<bind component="ctx0" role="stop">
+				</bind>
+			</link>
 		</context>
 		<link id="link3" xconnector="conn#onBeginStart">
 			<bind component="menu" role="onBegin">
@@ -434,6 +438,12 @@
 			<bind component="filme" role="onEnd">
 			</bind>
 			<bind component="background" role="stop">
+			</bind>
+		</link>
+		<link id="link25" xconnector="conn#onEndStop">
+			<bind component="filme" role="onEnd">
+			</bind>
+			<bind component="menuCont" role="stop">
 			</bind>
 		</link>
 	</body>
