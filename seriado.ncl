@@ -1,7 +1,9 @@
 <ncl id="myNCLDocID">
 	<head>
 		<transitionBase id="transitionBase1">
-			<transition dur="2s" endProgress="1" id="tFade" startProgress="0" type="fade">
+			<transition dur="1s" endProgress="1" id="tFade" startProgress="0" type="fade">
+			</transition>
+			<transition dur="1s" id="tWipe" type="barWipe">
 			</transition>
 		</transitionBase>
 		<ruleBase id="ruleBase1">
@@ -77,27 +79,27 @@
 			</descriptor>
 			<descriptor focusIndex="5" id="sairDesc" moveDown="2" moveUp="4" region="cartoonReg">
 			</descriptor>
-			<descriptor id="submenuDesc" region="submenuReg">
+			<descriptor id="submenuDesc" region="submenuReg" transIn="tFade" transOut="tFade">
 			</descriptor>
 			<descriptor focusIndex="6" id="antDesc" moveDown="8" moveLeft="7" moveRight="7" moveUp="8" region="antReg">
 			</descriptor>
 			<descriptor focusIndex="7" id="proxDesc" moveDown="8" moveLeft="6" moveRight="6" moveUp="8" region="proxReg">
 			</descriptor>
-			<descriptor id="fotowalterDesc" region="fotoReg">
+			<descriptor id="fotowalterDesc" region="fotoReg" transIn="tFade" transOut="tFade">
 			</descriptor>
-			<descriptor focusIndex="8" id="voltarDesc" moveDown="6" moveUp="6" region="voltarReg">
+			<descriptor focusIndex="8" id="voltarDesc" moveDown="6" moveUp="6" region="voltarReg" transIn="tFade" transOut="tFade">
 			</descriptor>
-			<descriptor id="textowalterDesc" region="textoReg">
+			<descriptor id="textowalterDesc" region="textoReg" transIn="tFade" transOut="tFade">
 			</descriptor>
-			<descriptor id="fotoskylerDesc" region="fotoReg">
+			<descriptor id="fotoskylerDesc" region="fotoReg" transIn="tFade" transOut="tFade">
 			</descriptor>
-			<descriptor id="fotojesseDesc" region="fotoReg">
+			<descriptor id="fotojesseDesc" region="fotoReg" transIn="tFade" transOut="tFade">
 			</descriptor>
-			<descriptor id="textoskylerDesc" region="textoReg">
+			<descriptor id="textoskylerDesc" region="textoReg" transIn="tFade" transOut="tFade">
 			</descriptor>
-			<descriptor id="textojesseDesc" region="textoReg">
+			<descriptor id="textojesseDesc" region="textoReg" transIn="tFade" transOut="tFade">
 			</descriptor>
-			<descriptor id="submenufotosDesc" region="submenuReg">
+			<descriptor id="submenufotosDesc" region="submenuReg" transIn="tFade" transOut="tFade">
 			</descriptor>
 		</descriptorBase>
 	</head>
@@ -281,6 +283,8 @@
 					</bind>
 					<bind component="walter" role="stop">
 					</bind>
+					<bind component="swtpersonagens" role="stop">
+					</bind>
 				</link>
 				<media descriptor="voltarDesc" id="voltar" src="media/voltar.png">
 				</media>
@@ -311,9 +315,11 @@
 				<link id="link18" xconnector="conn#onSelectionStopStart">
 					<bind component="ant" role="onSelection">
 					</bind>
-					<bind component="swtpersonagens" role="start">
-					</bind>
 					<bind component="walter" role="stop">
+					</bind>
+					<bind component="swtpersonagens" role="stop">
+					</bind>
+					<bind component="swtpersonagens" role="start">
 					</bind>
 				</link>
 			</context>
