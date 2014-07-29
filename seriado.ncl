@@ -1,7 +1,7 @@
 <ncl id="myNCLDocID">
 	<head>
 		<transitionBase id="transitionBase1">
-			<transition dur="1s" endProgress="1" id="tFade" startProgress="0" type="fade">
+			<transition dur="0.5s" endProgress="1" id="tFade" startProgress="0" type="fade">
 			</transition>
 			<transition dur="1s" id="tWipe" type="barWipe">
 			</transition>
@@ -283,8 +283,6 @@
 					</bind>
 					<bind component="walter" role="stop">
 					</bind>
-					<bind component="swtpersonagens" role="stop">
-					</bind>
 				</link>
 				<media descriptor="voltarDesc" id="voltar" src="media/voltar.png">
 				</media>
@@ -316,8 +314,6 @@
 					<bind component="ant" role="onSelection">
 					</bind>
 					<bind component="walter" role="stop">
-					</bind>
-					<bind component="swtpersonagens" role="stop">
 					</bind>
 					<bind component="swtpersonagens" role="start">
 					</bind>
