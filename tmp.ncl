@@ -1,9 +1,7 @@
 <ncl id="myNCLDocID">
 	<head>
 		<transitionBase id="transitionBase1">
-			<transition dur="1s" endProgress="1" id="tFade" startProgress="0" type="fade">
-			</transition>
-			<transition dur="1s" id="tWipe" type="barWipe">
+			<transition dur="0.3s" endProgress="1" id="tFade" startProgress="0" type="fade">
 			</transition>
 		</transitionBase>
 		<ruleBase id="ruleBase1">
@@ -101,6 +99,10 @@
 			</descriptor>
 			<descriptor id="submenufotosDesc" region="submenuReg" transIn="tFade" transOut="tFade">
 			</descriptor>
+			<descriptor id="primeiratemporadaDesc" region="fotoReg">
+			</descriptor>
+			<descriptor id="submenucapitulosDesc" region="submenuReg">
+			</descriptor>
 		</descriptorBase>
 	</head>
 	<body id="myBodyID">
@@ -171,50 +173,8 @@
 			</media>
 			<media descriptor="sairDesc" id="imgSair" src="media/sair.png">
 			</media>
-			<media descriptor="audioDesc" id="choro" src="media/choro.mp4">
-				<property name="soundLevel" value="1">
-				</property>
-			</media>
 			<media id="reusedMenu" instance="instSame" refer="menu">
 			</media>
-			<switch id="musics">
-				<bindRule constituent="personagens" rule="rPersonagens">
-				</bindRule>
-				<bindRule constituent="capitulos" rule="rCapitulos">
-				</bindRule>
-				<bindRule constituent="fotos" rule="rFotos">
-				</bindRule>
-				<bindRule constituent="cartoon" rule="rCartoon">
-				</bindRule>
-				<media id="personagens" src="media/rock.mp4">
-				</media>
-				<media id="capitulos" src="media/rock.mp4">
-				</media>
-				<media id="fotos" src="media/techno.mp4">
-				</media>
-				<media id="cartoon" src="media/cartoon.mp4">
-				</media>
-			</switch>
-			<link id="lOthers" xconnector="conn#onSelection_orSet_varStopStart">
-				<bind component="imgCapitulos" role="onSelection">
-				</bind>
-				<bind component="choro" interface="soundLevel" role="set">
-					<bindParam name="var" value="0">
-					</bindParam>
-				</bind>
-				<bind component="musics" role="stop">
-				</bind>
-				<bind component="musics" role="start">
-				</bind>
-			</link>
-			<link id="link4" xconnector="conn#onEndSet_var">
-				<bind component="musics" role="onEnd">
-				</bind>
-				<bind component="choro" interface="soundLevel" role="set">
-					<bindParam name="var" value="1">
-					</bindParam>
-				</bind>
-			</link>
 			<link id="link8" xconnector="conn#onKeySelectionStop">
 				<bind component="imgSair" role="onSelection">
 				</bind>
@@ -223,10 +183,14 @@
 			</link>
 			<media descriptor="submenuDesc" id="submenu" src="media/submenu.png">
 			</media>
-			<link id="link1" xconnector="conn#onKeySelectionStart">
+			<link id="link1" xconnector="conn#onKeySelectionStopStart">
 				<bind component="imgPersonagens" role="onSelection">
 				</bind>
 				<bind component="submenu" role="start">
+				</bind>
+				<bind component="submenufotos" role="stop">
+				</bind>
+				<bind component="submenucapitulos" role="stop">
 				</bind>
 			</link>
 			<context id="ctx1">
@@ -321,10 +285,14 @@
 			</context>
 			<media descriptor="submenufotosDesc" id="submenufotos" src="media/submenufotos.png">
 			</media>
-			<link id="link10" xconnector="conn#onKeySelectionStart">
+			<link id="link10" xconnector="conn#onKeySelectionStopStart">
 				<bind component="imgFotos" role="onSelection">
 				</bind>
 				<bind component="submenufotos" role="start">
+				</bind>
+				<bind component="submenucapitulos" role="stop">
+				</bind>
+				<bind component="submenu" role="stop">
 				</bind>
 			</link>
 			<link id="link19" xconnector="conn#onBeginStart">
@@ -345,10 +313,24 @@
 				<bind component="ctx1" role="stop">
 				</bind>
 			</link>
-			<link id="link13" xconnector="conn#onKeySelectionStop">
-				<bind component="imgPersonagens" role="onSelection">
+			<media descriptor="primeiratemporadaDesc" id="primeiratemporada" src="media/primeiratemporada.png">
+			</media>
+			<media descriptor="submenucapitulosDesc" id="submenucapitulos" src="media/submenucapitulos.png">
+			</media>
+			<link id="link4" xconnector="conn#onKeySelectionStopStart">
+				<bind component="imgCapitulos" role="onSelection">
+				</bind>
+				<bind component="submenucapitulos" role="start">
 				</bind>
 				<bind component="submenufotos" role="stop">
+				</bind>
+				<bind component="submenu" role="stop">
+				</bind>
+			</link>
+			<link id="link22" xconnector="conn#onBeginStart">
+				<bind component="submenucapitulos" role="onBegin">
+				</bind>
+				<bind component="primeiratemporada" role="start">
 				</bind>
 			</link>
 		</context>

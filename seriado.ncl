@@ -1,9 +1,7 @@
 <ncl id="myNCLDocID">
 	<head>
 		<transitionBase id="transitionBase1">
-			<transition dur="0.5s" endProgress="1" id="tFade" startProgress="0" type="fade">
-			</transition>
-			<transition dur="1s" id="tWipe" type="barWipe">
+			<transition dur="0.3s" endProgress="1" id="tFade" startProgress="0" type="fade">
 			</transition>
 		</transitionBase>
 		<ruleBase id="ruleBase1">
@@ -45,9 +43,23 @@
 				<region height="9.00%" id="sairReg" left="4.00%" top="65.00%" width="20.00%" zIndex="4">
 				</region>
 				<region height="100.00%" id="submenuReg" left="27.99%" top="0.00%" width="30.91%" zIndex="5">
-					<region height="42.05%" id="fotoReg" left="10.98%" top="2.00%" width="78.41%" zIndex="6">
+					<region height="42.05%" id="fotoReg" left="10.61%" top="2.08%" width="78.41%" zIndex="6">
+						<region height="11.39%" id="umReg" left="5.80%" top="86.00%" width="11.59%" zIndex="10">
+						</region>
+						<region height="11.39%" id="doisReg" left="18.36%" top="86.00%" width="11.59%" zIndex="10">
+						</region>
+						<region height="11.39%" id="tresReg" left="30.92%" top="86.00%" width="11.59%" zIndex="10">
+						</region>
+						<region height="11.39%" id="quatroReg" left="43.48%" top="86.00%" width="11.59%" zIndex="10">
+						</region>
+						<region height="11.39%" id="cincoReg" left="56.04%" top="86.00%" width="11.59%" zIndex="10">
+						</region>
+						<region height="11.39%" id="seisReg" left="69.08%" top="86.00%" width="11.59%" zIndex="10">
+						</region>
+						<region height="11.39%" id="seteReg" left="81.64%" top="86.00%" width="11.59%" zIndex="10">
+						</region>
 					</region>
-					<region height="48.12%" id="textoReg" left="10.98%" top="46.03%" width="78.03%" zIndex="7">
+					<region height="48.12%" id="textoReg" left="10.61%" top="46.04%" width="78.03%" zIndex="7">
 					</region>
 					<region height="6.90%" id="proxReg" left="84.09%" top="15.06%" width="10.98%" zIndex="8">
 					</region>
@@ -100,6 +112,24 @@
 			<descriptor id="textojesseDesc" region="textoReg" transIn="tFade" transOut="tFade">
 			</descriptor>
 			<descriptor id="submenufotosDesc" region="submenuReg" transIn="tFade" transOut="tFade">
+			</descriptor>
+			<descriptor id="primeiratemporadaDesc" region="fotoReg">
+			</descriptor>
+			<descriptor id="submenucapitulosDesc" region="submenuReg">
+			</descriptor>
+			<descriptor id="umDesc" region="umReg">
+			</descriptor>
+			<descriptor id="doisDesc" region="doisReg">
+			</descriptor>
+			<descriptor id="tresDesc" region="tresReg">
+			</descriptor>
+			<descriptor id="quatroDesc" region="quatroReg">
+			</descriptor>
+			<descriptor id="cincoDesc" region="cincoReg">
+			</descriptor>
+			<descriptor id="seisDesc" region="seisReg">
+			</descriptor>
+			<descriptor id="seteDesc" region="seteReg">
 			</descriptor>
 		</descriptorBase>
 	</head>
@@ -171,50 +201,8 @@
 			</media>
 			<media descriptor="sairDesc" id="imgSair" src="media/sair.png">
 			</media>
-			<media descriptor="audioDesc" id="choro" src="media/choro.mp4">
-				<property name="soundLevel" value="1">
-				</property>
-			</media>
 			<media id="reusedMenu" instance="instSame" refer="menu">
 			</media>
-			<switch id="musics">
-				<bindRule constituent="personagens" rule="rPersonagens">
-				</bindRule>
-				<bindRule constituent="capitulos" rule="rCapitulos">
-				</bindRule>
-				<bindRule constituent="fotos" rule="rFotos">
-				</bindRule>
-				<bindRule constituent="cartoon" rule="rCartoon">
-				</bindRule>
-				<media id="personagens" src="media/rock.mp4">
-				</media>
-				<media id="capitulos" src="media/rock.mp4">
-				</media>
-				<media id="fotos" src="media/techno.mp4">
-				</media>
-				<media id="cartoon" src="media/cartoon.mp4">
-				</media>
-			</switch>
-			<link id="lOthers" xconnector="conn#onSelection_orSet_varStopStart">
-				<bind component="imgCapitulos" role="onSelection">
-				</bind>
-				<bind component="choro" interface="soundLevel" role="set">
-					<bindParam name="var" value="0">
-					</bindParam>
-				</bind>
-				<bind component="musics" role="stop">
-				</bind>
-				<bind component="musics" role="start">
-				</bind>
-			</link>
-			<link id="link4" xconnector="conn#onEndSet_var">
-				<bind component="musics" role="onEnd">
-				</bind>
-				<bind component="choro" interface="soundLevel" role="set">
-					<bindParam name="var" value="1">
-					</bindParam>
-				</bind>
-			</link>
 			<link id="link8" xconnector="conn#onKeySelectionStop">
 				<bind component="imgSair" role="onSelection">
 				</bind>
@@ -223,10 +211,14 @@
 			</link>
 			<media descriptor="submenuDesc" id="submenu" src="media/submenu.png">
 			</media>
-			<link id="link1" xconnector="conn#onKeySelectionStart">
+			<link id="link1" xconnector="conn#onKeySelectionStopStart">
 				<bind component="imgPersonagens" role="onSelection">
 				</bind>
 				<bind component="submenu" role="start">
+				</bind>
+				<bind component="submenufotos" role="stop">
+				</bind>
+				<bind component="submenucapitulos" role="stop">
 				</bind>
 			</link>
 			<context id="ctx1">
@@ -321,10 +313,14 @@
 			</context>
 			<media descriptor="submenufotosDesc" id="submenufotos" src="media/submenufotos.png">
 			</media>
-			<link id="link10" xconnector="conn#onKeySelectionStart">
+			<link id="link10" xconnector="conn#onKeySelectionStopStart">
 				<bind component="imgFotos" role="onSelection">
 				</bind>
 				<bind component="submenufotos" role="start">
+				</bind>
+				<bind component="submenucapitulos" role="stop">
+				</bind>
+				<bind component="submenu" role="stop">
 				</bind>
 			</link>
 			<link id="link19" xconnector="conn#onBeginStart">
@@ -345,10 +341,66 @@
 				<bind component="ctx1" role="stop">
 				</bind>
 			</link>
-			<link id="link13" xconnector="conn#onKeySelectionStop">
-				<bind component="imgPersonagens" role="onSelection">
+			<media descriptor="primeiratemporadaDesc" id="primeiratemporada" src="media/primeiratemporada.png">
+			</media>
+			<media descriptor="submenucapitulosDesc" id="submenucapitulos" src="media/submenucapitulos.png">
+			</media>
+			<link id="link4" xconnector="conn#onKeySelectionStopStart">
+				<bind component="imgCapitulos" role="onSelection">
+				</bind>
+				<bind component="submenucapitulos" role="start">
 				</bind>
 				<bind component="submenufotos" role="stop">
+				</bind>
+				<bind component="submenu" role="stop">
+				</bind>
+			</link>
+			<link id="link22" xconnector="conn#onBeginStart">
+				<bind component="submenucapitulos" role="onBegin">
+				</bind>
+				<bind component="primeiratemporada" role="start">
+				</bind>
+			</link>
+			<link id="link13" xconnector="conn#onEndStop">
+				<bind component="submenucapitulos" role="onEnd">
+				</bind>
+				<bind component="primeiratemporada" role="stop">
+				</bind>
+			</link>
+			<context id="ctx0">
+				<media descriptor="seteDesc" id="sete" src="media/sete.png">
+				</media>
+				<media descriptor="tresDesc" id="tres" src="media/tres.png">
+				</media>
+				<media descriptor="umDesc" id="um" src="media/um.png">
+				</media>
+				<media descriptor="cincoDesc" id="cinco" src="media/cinco.png">
+				</media>
+				<media descriptor="doisDesc" id="dois" src="media/dois.png">
+				</media>
+				<media descriptor="quatroDesc" id="quatro" src="media/quatro.png">
+				</media>
+				<media descriptor="seisDesc" id="seis" src="media/seis.png">
+				</media>
+				<port component="um" id="p7">
+				</port>
+				<port component="dois" id="p8">
+				</port>
+				<port component="tres" id="p9">
+				</port>
+				<port component="quatro" id="p10">
+				</port>
+				<port component="cinco" id="p11">
+				</port>
+				<port component="seis" id="p12">
+				</port>
+				<port component="sete" id="p13">
+				</port>
+			</context>
+			<link id="link23" xconnector="conn#onBeginStart">
+				<bind component="submenucapitulos" role="onBegin">
+				</bind>
+				<bind component="ctx0" role="start">
 				</bind>
 			</link>
 		</context>
